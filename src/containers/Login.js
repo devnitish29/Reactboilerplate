@@ -11,12 +11,40 @@ import {
   CardItem,
   Card
 } from "native-base";
+import LoginAPI from '../actions/apis/login'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import APITransport from '../actions/apitransport/apitransport';
+
 
 // create a component
 class Login extends Component {
-  render() {
 
-    const { navigation } = this.props.navigation.navigate;
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      role: ''
+    }
+  }
+
+  
+ 
+  // processInputReceived = (e, { name, value }) => this.setState({ [name]: value })
+
+  processLoginButtonPressed = () => {
+    // const { email, password } = this.state;
+    // let apiObj = new LoginAPI(email, password)
+    // this.props.APITransport(apiObj)
+    // const { navigation } = this.props.navigation.navigate;
+    // navigation('dashboard');
+  }
+
+  render() {
+    const { navigate } = this.props.navigation;
+
     return (
       <Container style={styles.container}>
         <Content>
@@ -25,15 +53,18 @@ class Login extends Component {
               <Input
                 rounded
                 placeholder="UserName"
+                onChange={this.processInputReceived}
                 style={styles.placeholder}
               />
               <Input
                 rounded
                 placeholder="Password"
+                
+                onChange={this.processInputReceived}
                 style={styles.placeholder}
               />
               <Button rounded style={styles.buttonstyle} 
-              onPress={()=> this.props.navigation.navigate('dashboard')}>
+              onPress={()=> navigate("dashboard")}>
                 <Text style={styles.buttontext}> Login </Text>
               </Button> 
             </CardItem>
@@ -78,5 +109,19 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapStateToProps = (state) => {
+  return {
+    user: state.login,
+    apistatus: state.apistatus
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    APITransport: APITransport
+  }, dispatch)
+}
+
+
 //make this component available to the app
-export default Login;
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

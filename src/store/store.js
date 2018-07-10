@@ -11,7 +11,7 @@ const config = {
     key: 'root',
     storage,
 }
-let reducer = persistCombineReducers(config, { rootReducer });  
+let reducer = persistCombineReducers(config, rootReducer);  
 middlewares.push(thunk);
 
 if (process.env.NODE_ENV === 'development') {
