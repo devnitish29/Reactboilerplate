@@ -1,20 +1,15 @@
 import React, { Component } from "react";
-import { DrawerNavigator } from "react-navigation";
+import { StackNavigator } from "react-navigation";
 import { connect } from "react-redux";
 import LoginScreen from "../containers/Login";
-import DashboardScreen from "../containers/Dashboard";
-import SideBar from "../components/Sidebar"
+import DashboardScreen from "../containers/dasboard/index";
 
 
 
-const RootNavigator = DrawerNavigator(
+const RootNavigator = StackNavigator(
     {
         login: { screen: LoginScreen },
-        dashboard: { screen: DashboardScreen },
-
-    },
-    {
-        contentComponent: props => <SideBar {...props} />
+        dashboard: { screen: DashboardScreen }
     },
     {
         headerMode: 'none',
