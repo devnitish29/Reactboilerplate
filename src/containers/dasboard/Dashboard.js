@@ -12,9 +12,15 @@ class Dashboard extends Component {
       <Container>
         <Content>
         <Header>
-      
+        <Left>
+          <Button transparent 
+          >
+            <Icon type="Feather" name="menu"
+            onPress={() => this.props.navigation.openDrawer()}/>
+          </Button>
+        </Left>
         <Body>
-          <Title style={{color:'#fff',fontSize:16,fontWeight:'bold' }}>Dashboard</Title>
+          <Title   style={{color:'#fff',fontSize:16,fontWeight:'bold' }}>Dashboard</Title>
           </Body>
         </Header>
         </Content>
