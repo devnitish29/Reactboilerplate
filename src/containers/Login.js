@@ -39,9 +39,9 @@ class Login extends Component {
   // processInputReceived = (e, { name, value }) => this.setState({ [name]: value })
 
   processLoginButtonPressed = () => {
-    // const { email, password } = this.state;
-    // let apiObj = new LoginAPI(email, password)
-    // this.props.APITransport(apiObj)
+    const { email, password } = this.state;
+    let apiObj = new LoginAPI(email, password)
+    this.props.APITransport(apiObj)
     this.props.navigation.navigate('drawer');
   } 
 
