@@ -1,14 +1,26 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import {Container, Content, Header, Button,Body,Left, Icon,Title} from 'native-base';
 
 // create a component
 class Dashboard extends Component {
+
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Dashboard</Text>
-      </View>
+      <Container>
+        <Content>
+        <Header>
+      
+        <Body>
+          <Title style={{color:'#fff',fontSize:16,fontWeight:'bold' }}>Dashboard</Title>
+          </Body>
+        </Header>
+        </Content>
+    
+      </Container>
+    
     );
   }
 }

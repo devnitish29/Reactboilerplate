@@ -4,13 +4,13 @@ import { View, Text, StyleSheet } from "react-native";
 import {
   Container,
   Header,
-  Content,
+  Content, 
   Input,
   Item,
   Button,
   CardItem,
   Card
-} from "native-base";
+} from "native-base"; 
 import LoginAPI from '../actions/apis/login'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -30,7 +30,11 @@ class Login extends Component {
     }
   }
 
-  
+  // componentDidMount() {
+  //   sessionStorage.removeItem('token');
+     
+  // }
+
  
   // processInputReceived = (e, { name, value }) => this.setState({ [name]: value })
 
@@ -38,9 +42,10 @@ class Login extends Component {
     // const { email, password } = this.state;
     // let apiObj = new LoginAPI(email, password)
     // this.props.APITransport(apiObj)
-    // const { navigation } = this.props.navigation.navigate;
-    // navigation('dashboard');
-  }
+    this.props.navigation.navigate('drawer');
+  } 
+
+
 
   render() {
     const { navigate } = this.props.navigation;
@@ -64,7 +69,7 @@ class Login extends Component {
                 style={styles.placeholder}
               />
               <Button rounded style={styles.buttonstyle} 
-              onPress={()=> navigate("dashboard")}>
+              onPress={this.processLoginButtonPressed}>
                 <Text style={styles.buttontext}> Login </Text>
               </Button> 
             </CardItem>

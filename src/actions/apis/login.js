@@ -27,7 +27,7 @@ export default class LoginAPI extends API {
             this.role = res.role;
             this.userid = res.userid;
             this.name = res.name;
-            sessionStorage.setItem('token', this.token)
+            // sessionStorage.setItem('token', this.token)
         }
     }
 

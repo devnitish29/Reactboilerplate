@@ -17,7 +17,7 @@ export default function dispatchAPI(api) {
             api.processResponse(res.data)
             dispatch(dispatchAPIAsync(api));
             dispatch(apiStatusAsync(false, false, 'api successful'))
-            this.props.navigation.navigate('dashboard')
+           // this.props.navigation.navigate('dashboard')
             // history.push('/dashboard');
             // axios.create(api.getCustomConfigs()).post(api.apiEndPoint(), api.getBody(), api.getHeaders())
             //     .then(function (res) {
@@ -53,7 +53,7 @@ function dispatchAPIAsync(api) {
 }
 
 function apiStatusAsync(progress, error, message) {
-    return {
+     return {
         type: C.APISTATUS,
         payload: {
             progress: progress,

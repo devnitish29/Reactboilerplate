@@ -1,15 +1,29 @@
 import React, { Component } from "react";
-import { StackNavigator } from "react-navigation";
+import { createStackNavigator,createDrawerNavigator } from "react-navigation";
 import { connect } from "react-redux";
 import LoginScreen from "../containers/Login";
-import DashboardScreen from "../containers/dasboard/index";
+import DashboardScreen from "../containers/dasboard/Dashboard";
+import SideBar from "../components/Sidebar";
 
 
+const Drawer = createDrawerNavigator(
+    {
+        Dashboard: { screen: DashboardScreen },
 
-const RootNavigator = StackNavigator(
+    },
+
+    {
+    contentComponent: props => <SideBar {...props} />
+  }, 
+    {
+        initialRouteName: "Dashboard"
+    }
+);
+
+const RootNavigator = createStackNavigator(
     {
         login: { screen: LoginScreen },
-        dashboard: { screen: DashboardScreen }
+        drawer: { screen: Drawer }
     },
     {
         headerMode: 'none',
